@@ -3,7 +3,7 @@ import { Html, Head, Main, NextScript } from "next/document";
 export default function Document() {
   return (
     <Html lang="en">
-      <title>Real-Time Object Detection</title>
+      <title>Real-Time Object Detection Model with Sound</title>
       <Head>
         <meta name="application-name" content="Real-Time Object Detection" />
         <meta name="apple-mobile-web-app-capable" content="yes" />

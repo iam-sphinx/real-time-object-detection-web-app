@@ -143,18 +143,23 @@ const Yolo = (props: any) => {
   ) => {
     const dx = ctx.canvas.width / modelResolution[0];
     const dy = ctx.canvas.height / modelResolution[1];
-
+  
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+    
+    // Use the Web Speech API for text-to-speech
+    const synth = window.speechSynthesis;
+    const utterance = new SpeechSynthesisUtterance();
+  
     for (let i = 0; i < tensor.dims[0]; i++) {
       let [batch_id, x0, y0, x1, y1, cls_id, score] = tensor.data.slice(
         i * 7,
         i * 7 + 7
       );
-
+  
       // scale to canvas size
       [x0, x1] = [x0, x1].map((x: any) => x * dx);
       [y0, y1] = [y0, y1].map((x: any) => x * dy);
-
+  
       [batch_id, x0, y0, x1, y1, cls_id] = [
         batch_id,
         x0,
@@ -163,7 +168,7 @@ const Yolo = (props: any) => {
         y1,
         cls_id,
       ].map((x: any) => round(x));
-
+  
       [score] = [score].map((x: any) => round(x * 100, 1));
       const label =
         yoloClasses[cls_id].toString()[0].toUpperCase() +
@@ -172,19 +177,26 @@ const Yolo = (props: any) => {
         score.toString() +
         "%";
       const color = conf2color(score / 100);
-
+  
       ctx.strokeStyle = color;
       ctx.lineWidth = 3;
       ctx.strokeRect(x0, y0, x1 - x0, y1 - y0);
       ctx.font = "20px Arial";
       ctx.fillStyle = color;
       ctx.fillText(label, x0, y0 - 5);
-
+  
       // fillrect with transparent color
       ctx.fillStyle = color.replace(")", ", 0.2)").replace("rgb", "rgba");
       ctx.fillRect(x0, y0, x1 - x0, y1 - y0);
+  
+      // Set the text for text-to-speech
+      utterance.text = label;
+      
+      // Speak the label
+      synth.speak(utterance);
     }
   };
+  
 
   return (
     <ObjectDetectionCamera
