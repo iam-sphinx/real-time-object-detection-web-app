@@ -159,7 +159,7 @@ const WebcamComponent = (props: any) => {
       </div>
       <div className="flex flex-col justify-center items-center">
         <div className="flex gap-1 flex-row flex-wrap justify-center items-center m-5">
-          <div className="flex gap-3 justify-center items-center items-stretch">
+          <div className="flex gap-3 justify-center items-center">
             {/* <button
               onClick={async () => {
                 const startTime = Date.now();
@@ -188,7 +188,7 @@ const WebcamComponent = (props: any) => {
               Live Detection
             </button>
           </div>
-          <div className="flex gap-3 ml-3 justify-center items-center items-stretch">
+          <div className="flex gap-3 ml-3 justify-center items-center">
             {/* <button
               onClick={() => {
                 reset();
