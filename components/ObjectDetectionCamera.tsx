@@ -160,7 +160,7 @@ const WebcamComponent = (props: any) => {
       <div className="flex flex-col justify-center items-center">
         <div className="flex gap-1 flex-row flex-wrap justify-center items-center m-5">
           <div className="flex gap-3 justify-center items-center items-stretch">
-            <button
+            {/* <button
               onClick={async () => {
                 const startTime = Date.now();
                 await processImage();
@@ -169,7 +169,7 @@ const WebcamComponent = (props: any) => {
               className="text-purple-700 hover:text-white border border-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-purple-400 dark:text-purple-400 dark:hover:text-white dark:hover:bg-purple-500 dark:focus:ring-purple-900"
             >
               Capture Photo
-            </button>
+            </button> */}
             <button
               onClick={async () => {
                 if (liveDetection.current) {
@@ -189,7 +189,7 @@ const WebcamComponent = (props: any) => {
             </button>
           </div>
           <div className="flex gap-3 ml-3 justify-center items-center items-stretch">
-            <button
+            {/* <button
               onClick={() => {
                 reset();
                 setFacingMode(facingMode === "user" ? "environment" : "user");
@@ -197,8 +197,8 @@ const WebcamComponent = (props: any) => {
               className="text-yellow-400 hover:text-white border border-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-yellow-300 dark:text-yellow-300 dark:hover:text-white dark:hover:bg-yellow-400 dark:focus:ring-yellow-900"
             >
               Switch Camera
-            </button>
-            <button
+            </button> */}
+            {/* <button
               onClick={() => {
                 reset();
                 props.changeModelResolution();
@@ -206,7 +206,7 @@ const WebcamComponent = (props: any) => {
               className="text-green-700 hover:text-white border border-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-green-500 dark:text-green-500 dark:hover:text-white dark:hover:bg-green-600 dark:focus:ring-green-800 "
             >
               Change Model
-            </button>
+            </button> */}
             <button
               onClick={reset}
               className="text-gray-900 hover:text-white border border-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800"
@@ -215,9 +215,9 @@ const WebcamComponent = (props: any) => {
             </button>
           </div>
         </div>
-        <div>Using {props.modelName}</div>
+        {/* <div>Using {props.modelName}</div> */}
         <div className="flex gap-3 flex-row flex-wrap justify-between items-center px-5 w-full">
-          <div>
+          {/* <div>
             {"Model Inference Time: " + inferenceTime.toFixed() + "ms"}
             <br />
             {"Total Time: " + totalTime.toFixed() + "ms"}
@@ -234,7 +234,7 @@ const WebcamComponent = (props: any) => {
                 (1000 * (1 / totalTime - 1 / inferenceTime)).toFixed(2) +
                 "fps"}
             </div>
-          </div>
+          </div>*/}
         </div>
       </div>
     </div>
